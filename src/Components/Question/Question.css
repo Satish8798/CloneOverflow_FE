@@ -1,0 +1,7 @@
+.tags {
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.141);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}

@@ -1,0 +1,13 @@
+
+.answer-container{
+    width: 80%;
+    word-wrap: break-word;
+    min-height: 120px;
+    background-color: rgba(120, 188, 52, 0.197);
+    border-top: 1px solid grey;
+    display: flex;
+}
+
+.answer-container:hover{
+    background-color: rgba(48, 191, 82, 0.197);
+}

@@ -1,0 +1,10 @@
+
+.signup-form {
+    padding: 20px;
+    font-weight: 300;
+}
+
+textarea {
+    resize: none;
+    height: 300px;
+}

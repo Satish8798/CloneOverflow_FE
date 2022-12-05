@@ -1,0 +1,164 @@
+
+.navigation-bar {
+   display: flex;
+   justify-content: space-evenly;
+   padding-right: 2rem;
+}
+
+.logo-name {
+   display: flex;
+   justify-content: center;
+   width:fit-content;
+   align-items: center;
+   align-content: center;
+   cursor: pointer;
+}
+
+.logo-name p {
+   margin-top: 1rem;
+   font-weight: 300;
+   font-size: 1.5rem;
+}
+
+.logo-name p span {
+   font-weight: 900;
+}
+
+.form-items {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   align-content: center;
+}
+
+.form-items input{
+   margin-right: 10px;
+   width: 400px;
+}
+
+.form-items button{
+   margin-top: 1rem;
+}
+
+.login-signup {
+   display: flex;
+   justify-content: space-between;
+   height: 50px;
+   align-items: center;
+   align-content: center;
+   margin-top: .5rem;
+}
+
+.login-signup button{
+   margin-right: 1rem;
+}
+
+.profile-icon {
+   cursor: pointer;
+   top: 1.5rem;
+   position: relative;
+}
+
+
+@media screen and (max-width: 539px) {
+
+   .navigation-bar{
+       padding-right: 1rem;
+   }
+
+   .logo-name img {
+       width: 50px;
+   }
+
+   .logo-name p {
+       display: none;
+   }
+
+   .form-items input {
+       width: 80px;
+   }
+
+   .form-items button i{
+       width: 20px;
+       text-align: center;
+       margin: auto
+   }
+
+   .login-signup button{
+       margin-right: .5rem;
+       width: 60px;
+       height: 40px;
+       font-size: 10px;
+   }
+}
+
+@media screen and (min-width: 540px) and (max-width: 767px) {
+
+   .navigation-bar{
+       padding-right: 1rem;
+   }
+
+
+   .logo-name img {
+       width: 60px;
+   }
+
+   .logo-name p {
+       display: none;
+   }
+
+   .form-items input {
+       width: 180px;
+   }
+
+   .form-items button i{
+       width: 20px;
+       text-align: center;
+       margin: auto
+   }
+
+   .login-signup button{
+       margin-right: .5rem;
+       width: 60px;
+       height: 40px;
+       font-size: 10px;
+   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+
+   .navigation-bar{
+       padding-right: 1rem;
+   }
+
+   .logo-name img {
+       width: 60px;
+   }
+
+   .logo-name p {
+       font-size: 10px;
+   }
+
+   .form-items input {
+       width: 250px;
+   }
+
+   .form-items button i{
+       width: 20px;
+       text-align: center;
+       margin: auto
+   }
+
+   .login-signup button{
+       margin-right: .5rem;
+       width: 60px;
+       height: 40px;
+       font-size: 10px;
+   }
+}
+
+div>.MuiSvgIcon-root{
+   font-size: 45px;
+   margin-top: .5rem;
+   cursor: pointer;
+}

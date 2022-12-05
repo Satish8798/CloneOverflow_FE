@@ -1,0 +1,12 @@
+.question-title-form, .question-tags-form {
+    height: 100px;
+    width: 80%;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.question-description-form {
+    height: 200px;
+    width: 80%;
+    background-color: #fff;
+}
