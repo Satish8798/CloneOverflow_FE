@@ -1,30 +1,38 @@
-import React, { useState,useContext, useEffect } from "react";
+import React, { useState } from "react";
 import "./AskQuestion.css";
 import axios from "axios";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { TagsInput } from "react-tag-input-component";
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 function AskQuestion() {
-  const initialValues = {
-    title: "",
-    description: "",
-    tags: "",
-  };
-  const navigateTo=useNavigate();
-  const user= useSelector((state)=>state.user.value)
-  const [inputData, setInputData] = useState(initialValues);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [tags, setTags] = useState([]);
+  const navigateTo = useNavigate();
+  const user = useSelector((state) => state.user.value);
   const token = localStorage.getItem("token");
-  const userId= user["_id"];
-  const userName= user["name"];
-  const userEmail= user["email"];
- 
+  const userId = user["_id"];
+  const userName = user["name"];
+  const userEmail = user["email"];
+  
+
   async function handleSubmit(event) {
     event.preventDefault();
-    try {
+     try {
       const response = await axios.post(
         "http://localhost:8000/questions/create-question",
         {
-          ...inputData,user:userId,userName,userEmail
+          title,
+          description,
+          tags,
+          user: userId,
+          userName,
+          userEmail,
+          date: new Date()
         },
         {
           headers: {
@@ -32,19 +40,28 @@ function AskQuestion() {
           },
         }
       );
-      if(response.data.msg){
-        setInputData(initialValues);
+      if (response.data.msg) {
+        setTitle("");
+        setDescription("");
+        setTags([]);
         alert("question created successfully");
         navigateTo("/");
       }
     } catch (error) {
-        console.log(error)
-       alert("Enter data correctly");
-    }
+      console.log(error);
+      alert("Enter data correctly");
+    } 
   }
 
   return (
-    <div className="container mt-5">
+    <div className="container-fluid ms-5">
+      <ArrowCircleLeftIcon style={{
+        marginLeft:"5%",
+        marginBottom:"10px",
+        fontSize:"40px"
+      }} onClick={()=>{
+        navigateTo(-1);
+      }}/>
       <div className="row">
         <div className="col-12">
           <form
@@ -59,9 +76,9 @@ function AskQuestion() {
                   type="text"
                   className="form-control"
                   placeholder="e.g. Can we create stackoverflow clone using nodejs and react"
-                  value={inputData.title}
+                  value={title}
                   onChange={(e) => {
-                    setInputData({ ...inputData, title: e.target.value });
+                    setTitle(e.target.value);
                   }}
                 />
               </div>
@@ -70,26 +87,24 @@ function AskQuestion() {
               <label className="form-label">
                 Explain more about the doubt or problem
               </label>
-              <textarea
-                className="form-control h-75"
-                rows="3"
-                value={inputData.description}
-                onChange={(e) => {
-                  setInputData({ ...inputData, description: e.target.value });
+               <ReactQuill
+                theme="snow"
+                value={description}
+                onChange={setDescription}
+                style={{
+                  height: "200px",
                 }}
-              ></textarea>
+              /> 
+
             </div>
             <div className="question-tags-form p-2 mt-3">
               <div className="mb-3">
                 <label className="form-label">Tags</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="give comma seperated values"
-                  value={inputData.tags}
-                  onChange={(e)=>{
-                    setInputData({...inputData,tags:e.target.value})
-                  }}
+                <TagsInput
+                  value={tags}
+                  onChange={setTags}
+                  name="tags"
+                  placeHolder="enter tags"
                 />
               </div>
             </div>

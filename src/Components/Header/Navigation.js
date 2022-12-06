@@ -2,8 +2,7 @@ import "./Navigation.css";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import SearchIcon from "@mui/icons-material/Search";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function Navigation() {
   const loginStatus = useSelector((state) => state.login.value);
@@ -11,8 +10,8 @@ function Navigation() {
   const navigateTo = useNavigate();
 
   return (
-    <div className="container-fluid ">
-      <nav className="navigation-bar">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
         <div
           className="logo-name"
           onClick={() => {
@@ -39,61 +38,82 @@ function Navigation() {
             </span>
           </p>
         </div>
-        <div className="search-form">
-          <form onSubmit>
-            <div className="form-items">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="search..."
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                }}
-              />
-              <button type="submit" className="btn btn-primary mb-3">
-                <SearchIcon />
-              </button>
-            </div>
+        <h5
+          className="me-2"
+          style={{
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            navigateTo("/");
+          }}
+        >
+          Questions
+        </h5>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex ms-2 me-auto w-50" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search.."
+              aria-label="Search"
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
           </form>
+          <ul class="navbar-nav  mb-2 mb-lg-0">
+            <li class="nav-item">
+              {!loginStatus && (
+                <div className="login-signup">
+                  <button
+                    type="button"
+                    className="btn btn-light"
+                    onClick={() => {
+                      navigateTo("/login");
+                    }}
+                  >
+                    Log in
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => {
+                      navigateTo("/signup");
+                    }}
+                  >
+                    Sign up
+                  </button>
+                </div>
+              )}
+              {loginStatus && (
+                <div
+                  onClick={() => {
+                    navigateTo("/profile");
+                  }}
+                >
+                  <AccountCircleIcon />
+                </div>
+              )}
+            </li>
+          </ul>
         </div>
-        {!loginStatus && (
-          <div className="login-signup">
-            <button
-              type="button"
-              className="btn btn-light"
-              onClick={() => {
-                navigateTo("/login");
-              }}
-            >
-              Log in
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => {
-                navigateTo("/signup");
-              }}
-            >
-              Sign up
-            </button>
-          </div>
-        )}
-        {loginStatus && (
-          <div onClick={()=>{
-            navigateTo("/profile");
-          }}>
-            {/* <i
-              className="bi bi-person-fill profile-icon"
-              onClick={() => { */}
-               {/*  /*  navigateTo("/profile"); */ }
-              {/* }}
-            ></i> */}
-            <AccountCircleIcon/>
-          </div>
-        )}
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

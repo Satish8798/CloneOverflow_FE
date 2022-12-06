@@ -35,7 +35,7 @@ function Home() {
       {loginStatus && (
         <div className="wrapper">
           <div className="row">
-            <div className="col-12 col-sm-10 col-lg-8 mt-5">
+            <div className="col-12 mt-5">
               <div className="header">
                 <h1>Top Questions</h1>
                 <button

@@ -3,9 +3,22 @@
     width: 80%;
     word-wrap: break-word;
     min-height: 120px;
-    background-color: rgba(120, 188, 52, 0.197);
+    background-color: rgba(120, 188, 52, 0.122);
     border-top: 1px solid grey;
     display: flex;
+    margin:20px;
+    box-shadow: 0 5px 5px rgba(0, 85, 255, 0.313);
+}
+
+.answer-container:hover{
+    transform: scale(1.1);
+}
+
+.countables
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .answer-container:hover{

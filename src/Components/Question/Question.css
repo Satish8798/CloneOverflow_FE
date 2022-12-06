@@ -1,7 +1,10 @@
-.tags {
-    border: 1px solid red;
-    background-color: rgba(255, 0, 0, 0.141);
-    width: fit-content;
-    padding: 5px;
-    border-radius: 5px;
+
+.tag{
+    background-color: rgba(0, 123, 255, 0.504);
+    margin-right: 1rem;
+    border-radius: 3px;
+    padding:2px;
+    box-shadow: 2px 2px 2px rgba(231, 0, 0, 0.424);
+    cursor: pointer;
+    word-wrap: break-word;
 }
