@@ -28,12 +28,12 @@ function Question() {
   const userId = user["_id"];
   const userName = user["name"];
   const userEmail = user["email"];
-  const [toggle,setToggle]=useState(true);
+  const [toggle, setToggle] = useState(true);
 
-  async function handleUpVote(){
+  async function handleUpVote() {
     try {
-      const response = await axios.post(
-        "http://localhost:8000/questions/up-vote",
+       await axios.post(
+        "http://localhost:8000/questions/upvote",
         {
           userName,
           userEmail,
@@ -51,10 +51,10 @@ function Question() {
     }
   }
 
-  async function handleDownVote(){
+  async function handleDownVote() {
     try {
       const response = await axios.post(
-        "http://localhost:8000/questions/down-vote",
+        "http://localhost:8000/questions/downvote",
         {
           userName,
           userEmail,
@@ -66,8 +66,7 @@ function Question() {
           },
         }
       );
-      setToggle(!toggle)
-      
+      setToggle(!toggle);
     } catch (error) {
       console.error(error);
     }
@@ -110,17 +109,21 @@ function Question() {
 
   async function getQuestionDetails() {
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         "http://localhost:8000/questions/" + questionId,
+        {
+          user: userId,
+        },
         {
           headers: {
             "access-token": token,
           },
         }
       );
-      console.log(response.data.question);
       dispatch(setQuestion(response.data.question));
-      setQuestionStatus(true);
+      setTimeout(()=>{
+        setQuestionStatus(true);
+      },1000);
     } catch (error) {
       console.log(error);
     }
@@ -137,7 +140,7 @@ function Question() {
           navigateTo(-1);
         }}
       />
-      {!questionStatus && <h1>Loading...</h1>}
+      {!questionStatus && (<h1>Loading....</h1>)}
       {questionStatus && (
         <div className="container mt-5">
           <div className="row question-details">
@@ -155,10 +158,12 @@ function Question() {
               >
                 {question.votes.length}
               </h3>
-              <ArrowDropDownIcon style={votingIconStyle} 
-              onClick={()=>{
-                handleDownVote();
-              }} />
+              <ArrowDropDownIcon
+                style={votingIconStyle}
+                onClick={() => {
+                  handleDownVote();
+                }}
+              />
             </div>
             <div className="col-11">
               <h2>{question.title}</h2>
@@ -172,7 +177,9 @@ function Question() {
                 }}
               >
                 {question.tags.map((tag) => (
-                  <div className="tag">{tag}</div>
+                  <div className="tag" onClick={()=>{
+                    navigateTo("/question-results/"+tag);
+                  }}>{tag}</div>
                 ))}
               </div>
               <p
@@ -201,20 +208,6 @@ function Question() {
                     height: "250px",
                   }}
                 >
-                  {/* <textarea
-                  className="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style={{
-                    height: "100px",
-                  }}
-                  value={answer}
-                  onChange={(e) => {
-                    setAnswer(e.target.value);
-                  }}
-                ></textarea> */}
-
-                  {/* <label for="floatingTextarea2">your answer</label> */}
                   <ReactQuill
                     theme="snow"
                     value={answer}

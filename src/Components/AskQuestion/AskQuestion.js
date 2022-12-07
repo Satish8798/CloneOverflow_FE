@@ -62,12 +62,13 @@ function AskQuestion() {
       }} onClick={()=>{
         navigateTo(-1);
       }}/>
-      <div className="row">
+      <div className="row ms-5 mt-2">
         <div className="col-12">
           <form
             onSubmit={(event) => {
               handleSubmit(event);
             }}
+            className="ms-auto"
           >
             <div className="question-title-form p-2">
               <div className="mb-3">

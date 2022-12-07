@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
-/* import { dataContext } from "../Context/Context";
- */ import "./QuestionsList.css";
+import "./QuestionsList.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuestions } from "../../features/questionsSlice";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 function QuestionsList() {
   const dispatch = useDispatch();
@@ -17,7 +18,9 @@ function QuestionsList() {
           "access-token": token,
         },
       });
+     setTimeout(()=>{
       dispatch(setQuestions([...response.data.response]));
+     },1000)
     } catch (error) {
       console.log(error);
     }
@@ -34,8 +37,8 @@ function QuestionsList() {
       <div className="col-md-2 col-xs-0">
       </div>
       <div className="col-md-10 col-12">
-        {!questions ? (
-        <h1>Loading...</h1>
+        {!questions.length ? (
+        <CircularProgress/>
       ) : (
         questions.map((d, i) => <SingleQuestion key={i} d={d} />)
       )}
@@ -45,7 +48,7 @@ function QuestionsList() {
   );
 }
 
-function SingleQuestion({ d }) {
+ export function SingleQuestion({ d }) {
   const navigateTo = useNavigate();
 
   return (
@@ -69,7 +72,9 @@ function SingleQuestion({ d }) {
         wordWrap:"break-word"
        }}>
         { d.tags.map((tag)=>(
-          <div className="tag">
+          <div className="tag" onClick={()=>{
+            navigateTo("/question-results/"+tag);
+          }}>
             {tag}
           </div>
         ))}

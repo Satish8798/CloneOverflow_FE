@@ -14,7 +14,7 @@ function Profile() {
     if (user) {
       setTimeout(() => {
         setLoadingTime(false);
-      }, 3000);
+      }, 1000);
     }
   }, []);
 
@@ -23,28 +23,28 @@ function Profile() {
       <div className="row">
         <div className="col-12">
           {loadingTime ? (
-            <div class="card" aria-hidden="true">
-              <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                  <span class="placeholder col-6"></span>
+            <div className="card" aria-hidden="true">
+              <div className="card-body">
+                <h5 className="card-title placeholder-glow">
+                  <span className="placeholder col-6"></span>
                 </h5>
-                <p class="card-text placeholder-glow">
-                  <span class="placeholder col-7"></span>
-                  <span class="placeholder col-4"></span>
-                  <span class="placeholder col-4"></span>
-                  <span class="placeholder col-6"></span>
-                  <span class="placeholder col-8"></span>
+                <p className="card-text placeholder-glow">
+                  <span className="placeholder col-7"></span>
+                  <span className="placeholder col-4"></span>
+                  <span className="placeholder col-4"></span>
+                  <span className="placeholder col-6"></span>
+                  <span className="placeholder col-8"></span>
                 </p>
               </div>
             </div>
           ) : (
-            <div class="card">
-              <div class="card-body">
-                <h1 class="card-title">{user.name}</h1>
-                <p class="card-text">
+            <div className="card">
+              <div className="card-body">
+                <h1 className="card-title">{user.name}</h1>
+                <p className="card-text">
                   <small>{user.email}</small>
                 </p>
-                <p class="card-text">
+                <p className="card-text">
                   {user.about}
                 </p>
               </div>

@@ -60,11 +60,14 @@ function Navigation() {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex ms-2 me-auto w-50" role="search">
+          <form class="d-flex ms-2 me-auto w-50" role="search" onSubmit={()=>{
+            navigateTo("/question-results/"+search);
+            setSearch('');
+          }}>
             <input
               class="form-control m-2"
               type="search"
-              placeholder="Search.."
+              placeholder="Search by tag..."
               aria-label="Search"
               value={search}
               onChange={(e) => {

@@ -8,3 +8,7 @@
     cursor: pointer;
     word-wrap: break-word;
 }
+
+.tag:hover{
+    background-color: rgba(47, 255, 0, 0.504);
+}
