@@ -25,10 +25,53 @@ function Question() {
   const [questionStatus, setQuestionStatus] = useState(false);
   const navigateTo = useNavigate();
   const user = useSelector((state) => state.user.value);
-  console.log(user);
   const userId = user["_id"];
   const userName = user["name"];
   const userEmail = user["email"];
+  const [toggle,setToggle]=useState(true);
+
+  async function handleUpVote(){
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/questions/up-vote",
+        {
+          userName,
+          userEmail,
+          question: question["_id"],
+        },
+        {
+          headers: {
+            "access-token": token,
+          },
+        }
+      );
+      setToggle(!toggle);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleDownVote(){
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/questions/down-vote",
+        {
+          userName,
+          userEmail,
+          question: question["_id"],
+        },
+        {
+          headers: {
+            "access-token": token,
+          },
+        }
+      );
+      setToggle(!toggle)
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -63,11 +106,10 @@ function Question() {
 
   useEffect(() => {
     getQuestionDetails();
-  }, []);
+  }, [toggle]);
 
   async function getQuestionDetails() {
     try {
-      console.log("questiondeails func");
       const response = await axios.get(
         "http://localhost:8000/questions/" + questionId,
         {
@@ -103,7 +145,7 @@ function Question() {
               <ArrowDropUpIcon
                 style={votingIconStyle}
                 onClick={() => {
-                  console.log("hi");
+                  handleUpVote();
                 }}
               />
               <h3
@@ -113,7 +155,10 @@ function Question() {
               >
                 {question.votes.length}
               </h3>
-              <ArrowDropDownIcon style={votingIconStyle} />
+              <ArrowDropDownIcon style={votingIconStyle} 
+              onClick={()=>{
+                handleDownVote();
+              }} />
             </div>
             <div className="col-11">
               <h2>{question.title}</h2>

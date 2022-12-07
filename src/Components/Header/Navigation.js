@@ -18,25 +18,24 @@ function Navigation() {
             navigateTo("/");
           }}
         >
-          <p>
+          <h2>
             <span
               style={{
                 fontWeight: "500",
                 color: "red",
               }}
             >
-              stack
+              Clone
             </span>
-            <span>overflow</span>
             <span
               style={{
                 fontWeight: "500",
                 color: "green",
               }}
             >
-              clone
+              Overflow
             </span>
-          </p>
+          </h2>
         </div>
         <h5
           className="me-2"
@@ -63,7 +62,7 @@ function Navigation() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <form class="d-flex ms-2 me-auto w-50" role="search">
             <input
-              class="form-control me-2"
+              class="form-control m-2"
               type="search"
               placeholder="Search.."
               aria-label="Search"
@@ -72,7 +71,7 @@ function Navigation() {
                 setSearch(e.target.value);
               }}
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-outline-success h-25 mt-auto mb-auto" type="submit">
               Search
             </button>
           </form>
@@ -106,7 +105,9 @@ function Navigation() {
                     navigateTo("/profile");
                   }}
                 >
-                  <AccountCircleIcon />
+                  <AccountCircleIcon style={{
+                    marginTop:".5rem"
+                  }} />
                 </div>
               )}
             </li>
