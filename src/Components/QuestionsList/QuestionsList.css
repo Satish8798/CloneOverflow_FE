@@ -9,6 +9,18 @@
     box-shadow: 0 5px 5px rgba(255, 0, 0, 0.313)
 }
 
+.question-meta{
+    width: 75%;
+}
+
+.countables{
+    width: 25%;
+}
+
+.countables p{
+    margin-left: auto;
+    margin-right: 2rem
+}
 
 .question-container:hover{
     transform: scale(1.02);
@@ -33,4 +45,21 @@
     box-shadow: 2px 2px 2px rgba(231, 0, 0, 0.424);
     cursor: pointer;
     word-wrap: break-word;
+}
+
+@media screen and (max-width: 1000px ){
+    .question-container{
+        flex-direction: column;
+    }
+
+    .question-container .countables{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%
+    }
+
+    .question-meta{
+        width:100%;
+    }
 }

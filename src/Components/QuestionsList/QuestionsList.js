@@ -52,14 +52,14 @@ function QuestionsList() {
   const navigateTo = useNavigate();
   const token = localStorage.getItem("user");
   return (
-    <div className="question-container p-2">
-      <div className="countables w-25 ms-auto text-end">
+    <div className="question-container p-2 w-100">
+      <div className="countables">
         <p>{d.votes.length} votes</p>
         <p>{d.answers.length} answers</p>
         <p>{d.views.length} views</p>
       </div>
-      <div className="question-meta w-75 text-left ps-5">
-        <h4
+      <div className="question-meta text-left">
+        <p style={{fontWeight:600}}
           onClick={() => {
            if(token){
             navigateTo("/questions/" + d["_id"]);
@@ -69,7 +69,7 @@ function QuestionsList() {
           }}
         >
           {d.title}
-        </h4>
+        </p>
        <div style={{
         display:"flex",
         marginBottom: "5px",
