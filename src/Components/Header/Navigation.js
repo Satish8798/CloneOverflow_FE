@@ -10,8 +10,8 @@ function Navigation() {
   const navigateTo = useNavigate();
 
   return (
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
+    <nav className="navbar navbar-expand-lg">
+      <div className="container">
         <div
           className="logo-name"
           onClick={() => {
@@ -51,7 +51,7 @@ function Navigation() {
       </h5>
         }
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -59,15 +59,15 @@ function Navigation() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex ms-2 me-auto w-50" role="search" onSubmit={()=>{
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <form className="d-flex ms-2 me-auto w-50" role="search" onSubmit={()=>{
             navigateTo("/question-results/"+search);
             setSearch('');
           }}>
             <input
-              class="form-control m-2"
+              className="form-control m-2"
               type="search"
               placeholder="Search by tag..."
               aria-label="Search"
@@ -77,12 +77,12 @@ function Navigation() {
               }}
               required
             />
-            <button class="btn btn-outline-success h-25 mt-auto mb-auto" type="submit">
+            <button className="btn btn-outline-success h-25 mt-auto mb-auto" type="submit">
               Search
             </button>
           </form>
-          <ul class="navbar-nav  mb-2 mb-lg-0">
-            <li class="nav-item">
+          <ul className="navbar-nav  mb-2 mb-lg-0">
+            <li className="nav-item">
               {!loginStatus && (
                 <div className="login-signup">
                   <button
