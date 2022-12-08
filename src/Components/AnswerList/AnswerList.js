@@ -20,7 +20,7 @@ function AnswersList({ question }) {
 
   async function handleUpVote(answer){
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://cloneoverflow.onrender.com/answers/up-vote",
         {
           userName,
@@ -41,7 +41,7 @@ function AnswersList({ question }) {
 
   async function handleDownVote(answer){
     try {
-      const response = await axios.post(
+     await axios.post(
         "https://cloneoverflow.onrender.com/answers/down-vote",
         {
           userName,
