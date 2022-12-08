@@ -37,17 +37,19 @@ function Navigation() {
             </span>
           </h2>
         </div>
+        {loginStatus &&
         <h5
-          className="me-2"
-          style={{
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            navigateTo("/");
-          }}
-        >
-          Questions
-        </h5>
+        className="me-2"
+        style={{
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          navigateTo("/");
+        }}
+      >
+        Questions
+      </h5>
+        }
         <button
           class="navbar-toggler"
           type="button"

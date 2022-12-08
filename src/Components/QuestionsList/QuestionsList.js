@@ -50,7 +50,7 @@ function QuestionsList() {
 
  export function SingleQuestion({ d }) {
   const navigateTo = useNavigate();
-
+  const token = localStorage.getItem("user");
   return (
     <div className="question-container p-2">
       <div className="countables w-25 ms-auto text-end">
@@ -61,7 +61,11 @@ function QuestionsList() {
       <div className="question-meta w-75 text-left ps-5">
         <h4
           onClick={() => {
+           if(token){
             navigateTo("/questions/" + d["_id"]);
+           }else{
+            navigateTo("/login");
+           }
           }}
         >
           {d.title}

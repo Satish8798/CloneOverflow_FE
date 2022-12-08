@@ -76,7 +76,7 @@ function Login() {
           </form>
           <Link to="/signup">New User? signup</Link>
           <br />
-          <Link to="/reset-password">forgot password?</Link>
+         {/*  <Link to="/reset-password">forgot password?</Link> */}
           {!loginValidation && (
             <div className="alert alert-danger mt-2" role="alert">
               Invalid email or password

@@ -30,6 +30,9 @@ function Home() {
             <span className="text-success">ANSWER</span>
             <br /> questions
           </h1>
+          <h2>
+            or Search for Questions
+          </h2>
         </div>
       )}
       {loginStatus && (
