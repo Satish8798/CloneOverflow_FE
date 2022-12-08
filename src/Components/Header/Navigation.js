@@ -62,7 +62,8 @@ function Navigation() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex ms-2 me-auto w-50" role="search" onSubmit={()=>{
+          <form className="d-flex ms-2 me-auto w-50" role="search" onSubmit={(e)=>{
+            e.preventDefault();
             navigateTo("/question-results/"+search);
             setSearch('');
           }}>
