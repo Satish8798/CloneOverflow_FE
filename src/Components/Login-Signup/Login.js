@@ -20,7 +20,7 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/user/login", {
+      const response = await axios.post("https://cloneoverflow.onrender.com/user/login", {
         ...inputData,
       });
       console.log(response.data);

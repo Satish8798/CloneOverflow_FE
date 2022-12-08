@@ -24,7 +24,7 @@ function AskQuestion() {
     event.preventDefault();
      try {
       const response = await axios.post(
-        "http://localhost:8000/questions/create-question",
+        "https://cloneoverflow.onrender.com/questions/create-question",
         {
           title,
           description,

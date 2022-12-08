@@ -21,7 +21,7 @@ function AnswersList({ question }) {
   async function handleUpVote(answer){
     try {
       const response = await axios.post(
-        "http://localhost:8000/answers/up-vote",
+        "https://cloneoverflow.onrender.com/answers/up-vote",
         {
           userName,
           userEmail,
@@ -42,7 +42,7 @@ function AnswersList({ question }) {
   async function handleDownVote(answer){
     try {
       const response = await axios.post(
-        "http://localhost:8000/answers/down-vote",
+        "https://cloneoverflow.onrender.com/answers/down-vote",
         {
           userName,
           userEmail,
@@ -63,7 +63,7 @@ function AnswersList({ question }) {
 
   async function getAnswers() {
     try {
-      const response = await axios.post("http://localhost:8000/answers/get", {
+      const response = await axios.post("https://cloneoverflow.onrender.com/answers/get", {
         question: question["_id"],
       });
       setAnswers(response.data);

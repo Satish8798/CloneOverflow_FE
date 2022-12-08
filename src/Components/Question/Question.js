@@ -33,7 +33,7 @@ function Question() {
   async function handleUpVote() {
     try {
        await axios.post(
-        "http://localhost:8000/questions/upvote",
+        "https://cloneoverflow.onrender.com/questions/upvote",
         {
           userName,
           userEmail,
@@ -54,7 +54,7 @@ function Question() {
   async function handleDownVote() {
     try {
       const response = await axios.post(
-        "http://localhost:8000/questions/downvote",
+        "https://cloneoverflow.onrender.com/questions/downvote",
         {
           userName,
           userEmail,
@@ -77,7 +77,7 @@ function Question() {
     try {
       if (question) {
         const response = await axios.post(
-          "http://localhost:8000/answers/create-answer",
+          "https://cloneoverflow.onrender.com/answers/create-answer",
           {
             answer,
             user: userId,
@@ -110,7 +110,7 @@ function Question() {
   async function getQuestionDetails() {
     try {
       const response = await axios.post(
-        "http://localhost:8000/questions/" + questionId,
+        "https://cloneoverflow.onrender.com/questions/" + questionId,
         {
           user: userId,
         },

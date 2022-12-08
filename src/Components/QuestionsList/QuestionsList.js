@@ -13,7 +13,7 @@ function QuestionsList() {
   const token = localStorage.getItem("token");
   async function getQuestions() {
     try {
-      const response = await axios.get("http://localhost:8000/questions/get", {
+      const response = await axios.get("https://cloneoverflow.onrender.com/questions/get", {
         headers: {
           "access-token": token,
         },

@@ -10,7 +10,7 @@ function QuestionResults() {
     const {tag} = useParams();
     async function getResults(){
         try {
-            const response = await axios.get("http://localhost:8000/questions/get-results?tag="+tag);
+            const response = await axios.get("https://cloneoverflow.onrender.com/questions/get-results?tag="+tag);
             
              setResults(response.data.results);    
         } catch (error) {

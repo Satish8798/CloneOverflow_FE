@@ -24,7 +24,7 @@ function Signup() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/user/signup", {
+      const response = await axios.post("https://cloneoverflow.onrender.com/user/signup", {
         ...inputData,
       });
       if (response.data.msg) {
