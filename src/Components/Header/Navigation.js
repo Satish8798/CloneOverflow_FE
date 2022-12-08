@@ -75,6 +75,7 @@ function Navigation() {
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
+              required
             />
             <button class="btn btn-outline-success h-25 mt-auto mb-auto" type="submit">
               Search

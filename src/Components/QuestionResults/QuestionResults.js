@@ -29,7 +29,7 @@ function QuestionResults() {
           fontSize: "40px",
         }}
         onClick={() => {
-          navigateTo(-1);
+          navigateTo("/");
         }}
       />
           <div className="row">
