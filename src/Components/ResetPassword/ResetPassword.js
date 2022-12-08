@@ -25,7 +25,7 @@ function ResetPassword() {
     if (!accountData.confirmPassword) {
       try {
         let response = await axios.post(
-          "http://cloneoverflow.onrender.com/user/search-account",
+          "https://cloneoverflow.onrender.com/user/search-account",
           {
             ...accountData,
           }
@@ -51,7 +51,7 @@ function ResetPassword() {
       setSuccess(false);
       try {
         let response = await axios.post(
-          "http://cloneoverflow.onrender.com/user/reset-password",
+          "https://cloneoverflow.onrender.com/user/reset-password",
           {
             ...accountData,
           }
@@ -75,7 +75,7 @@ function ResetPassword() {
   async function checkOtp(){
     try {
       let response = await  axios.post(
-        "http://cloneoverflow.onrender.com/user/check-otp",
+        "https://cloneoverflow.onrender.com/user/check-otp",
         {
           email: accountData.email,
           otp: otp
