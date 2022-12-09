@@ -91,7 +91,7 @@
 
    .login-signup button{
        margin-right: .5rem;
-       width: 60px;
+       width: 50%;
        height: 40px;
        font-size: 10px;
    }
@@ -111,7 +111,7 @@
 
    .login-signup button{
        margin-right: .5rem;
-       width: 60px;
+       width: 50%;
        height: 40px;
        font-size: 10px;
    }
