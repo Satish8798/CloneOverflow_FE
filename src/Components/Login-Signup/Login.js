@@ -16,19 +16,25 @@ function Login() {
   };
   const [inputData, setInputData] = useState(initialValues);
   const [loginValidation, setLoginValidation] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post("https://cloneoverflow.onrender.com/user/login", {
-        ...inputData,
-      });
+      const response = await axios.post(
+        "https://cloneoverflow.onrender.com/user/login",
+        {
+          ...inputData,
+        }
+      );
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.userDetails));
       console.log(response.data.user);
       dispatch(setUser({ ...response.data.user }));
       dispatch(login());
+      setLoading(false);
       navigateTo("/");
     } catch (error) {
       console.error(error);
@@ -71,7 +77,13 @@ function Login() {
               <label>Password</label>
             </div>
             <button type="submit" className="btn btn-primary rounded-0 w-75">
-              Login
+              {loading ? (
+                <div class="spinner-border text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                <p>Login</p>
+              )}
             </button>
           </form>
           <Link to="/signup">New User? signup</Link>

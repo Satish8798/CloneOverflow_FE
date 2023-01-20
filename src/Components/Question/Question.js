@@ -32,7 +32,7 @@ function Question() {
 
   async function handleUpVote() {
     try {
-       await axios.post(
+      await axios.post(
         "https://cloneoverflow.onrender.com/questions/upvote",
         {
           userName,
@@ -53,7 +53,7 @@ function Question() {
 
   async function handleDownVote() {
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://cloneoverflow.onrender.com/questions/downvote",
         {
           userName,
@@ -121,13 +121,32 @@ function Question() {
         }
       );
       dispatch(setQuestion(response.data.question));
-      setTimeout(()=>{
+      setTimeout(() => {
         setQuestionStatus(true);
-      },1000);
+      }, 1000);
     } catch (error) {
       console.log(error);
     }
   }
+
+  function createMarkup() {
+    return { __html: question.description };
+  }
+
+  const modules = {
+    toolbar: [
+      [{ font: [] }],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ color: [] }, { background: [] }],
+      [{ script: "sub" }, { script: "super" }],
+      ["blockquote", "code-block"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
+      ["link", "image", "video"],
+      ["clean"],
+    ],
+  };
 
   return (
     <div>
@@ -140,7 +159,7 @@ function Question() {
           navigateTo(-1);
         }}
       />
-      {!questionStatus && (<h1>Loading....</h1>)}
+      {!questionStatus && <h1>Loading....</h1>}
       {questionStatus && (
         <div className="container mt-5">
           <div className="row question-details">
@@ -168,7 +187,7 @@ function Question() {
             <div className="col-11">
               <h2>{question.title}</h2>
               <h6>description</h6>
-              <p>{question.description}</p>
+              <p dangerouslySetInnerHTML={createMarkup()} />
               <div
                 style={{
                   display: "flex",
@@ -177,9 +196,14 @@ function Question() {
                 }}
               >
                 {question.tags.map((tag) => (
-                  <div className="tag" onClick={()=>{
-                    navigateTo("/question-results/"+tag);
-                  }}>{tag}</div>
+                  <div
+                    className="tag"
+                    onClick={() => {
+                      navigateTo("/question-results/" + tag);
+                    }}
+                  >
+                    {tag}
+                  </div>
                 ))}
               </div>
               <p
@@ -215,6 +239,7 @@ function Question() {
                     style={{
                       height: "200px",
                     }}
+                    modules={modules}
                   />
                 </div>
                 <button type="submit" className="btn btn-primary">

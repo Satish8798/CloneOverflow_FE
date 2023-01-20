@@ -76,6 +76,10 @@ function AnswersList({ question }) {
     getAnswers();
   }, [toggle]);
 
+  function createMarkup(d){
+    return {__html: d.answer};
+  }
+
   return (
     <div>
       {answers.map((d) => (
@@ -100,7 +104,7 @@ function AnswersList({ question }) {
              }} />
           </div>
           <div className="answer-meta w-75 text-left ps-5">
-            <p>{d.answer}</p>
+            <p dangerouslySetInnerHTML={createMarkup(d)}/>
             <p
               className="author-name"
               style={{

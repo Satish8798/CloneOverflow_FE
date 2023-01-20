@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { TagsInput } from "react-tag-input-component";
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 
 function AskQuestion() {
   const [title, setTitle] = useState("");
@@ -18,11 +18,25 @@ function AskQuestion() {
   const userId = user["_id"];
   const userName = user["name"];
   const userEmail = user["email"];
-  
+
+  const modules = {
+    toolbar: [
+      [{ font: [] }],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ color: [] }, { background: [] }],
+      [{ script: "sub" }, { script: "super" }],
+      ["blockquote", "code-block"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
+      ["link", "image", "video"],
+      ["clean"],
+    ],
+  };
 
   async function handleSubmit(event) {
     event.preventDefault();
-     try {
+    try {
       const response = await axios.post(
         "https://cloneoverflow.onrender.com/questions/create-question",
         {
@@ -32,7 +46,7 @@ function AskQuestion() {
           user: userId,
           userName,
           userEmail,
-          date: new Date()
+          date: new Date(),
         },
         {
           headers: {
@@ -50,18 +64,26 @@ function AskQuestion() {
     } catch (error) {
       console.log(error);
       alert("Enter data correctly");
-    } 
+    }
   }
+
+  const onDescription = (value) => {
+    console.log(description);
+    setDescription(value);
+  };
 
   return (
     <div className="container-fluid ms-5">
-      <ArrowCircleLeftIcon style={{
-        marginLeft:"5%",
-        marginBottom:"10px",
-        fontSize:"40px"
-      }} onClick={()=>{
-        navigateTo(-1);
-      }}/>
+      <ArrowCircleLeftIcon
+        style={{
+          marginLeft: "5%",
+          marginBottom: "10px",
+          fontSize: "40px",
+        }}
+        onClick={() => {
+          navigateTo(-1);
+        }}
+      />
       <div className="row ms-5 mt-2">
         <div className="col-12">
           <form
@@ -88,15 +110,15 @@ function AskQuestion() {
               <label className="form-label">
                 Explain more about the doubt or problem
               </label>
-               <ReactQuill
+              <ReactQuill
                 theme="snow"
                 value={description}
-                onChange={setDescription}
+                onChange={onDescription}
                 style={{
                   height: "200px",
                 }}
-              /> 
-
+                modules={modules}
+              />
             </div>
             <div className="question-tags-form p-2 mt-3">
               <div className="mb-3">

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./signup-login.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
 
 function Signup() {
-
-  console.log("signup comp")
+  const [loading, setLoading] = useState(false);
   const initialValues = {
     name: "",
     email: "",
@@ -23,10 +23,14 @@ function Signup() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.post("https://cloneoverflow.onrender.com/user/signup", {
-        ...inputData,
-      });
+      const response = await axios.post(
+        "https://cloneoverflow.onrender.com/user/signup",
+        {
+          ...inputData,
+        }
+      );
       if (response.data.msg) {
         setInputData(initialValues);
         setSignupStatus(true);
@@ -35,20 +39,21 @@ function Signup() {
 
         setTimeout(() => {
           setSignupStatus(false);
+          setLoading(false);
           navigateTo("/login");
         }, 2000);
       }
     } catch (error) {
       if (error.response.data.msg === "email already exists") {
         setNewEmail(false);
-        setTimeout(()=>{
+        setTimeout(() => {
           setNewEmail(true);
-        },2000)
+        }, 2000);
       } else if (error.response.data.msg === "password not matching") {
         setPasswordMatch(false);
-        setTimeout(()=>{
+        setTimeout(() => {
           setPasswordMatch(true);
-        },3000)
+        }, 3000);
       }
     }
   }
@@ -129,7 +134,13 @@ function Signup() {
               <label>About</label>
             </div>
             <button type="submit" className="btn btn-primary rounded-0 w-75">
-              Sign up
+              {loading ? (
+                <div class="spinner-border text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                <p>Sign up</p>
+              )}
             </button>
           </form>
           <Link to="/login">Already a user? Login</Link>
