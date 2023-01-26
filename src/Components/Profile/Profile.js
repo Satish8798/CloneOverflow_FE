@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/loginSlice";
 import { removeUser } from "../../features/userSlice";
 import { useEffect, useState } from "react";
+import UserQuestionsList from "./UserQuestionsList";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -65,6 +66,9 @@ function Profile() {
             Log out
           </button>
         </div>
+      </div>
+      <div className="row mt-5">
+        <UserQuestionsList/>
       </div>
     </div>
   );
