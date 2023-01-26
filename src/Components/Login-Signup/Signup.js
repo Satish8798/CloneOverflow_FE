@@ -45,11 +45,13 @@ function Signup() {
       }
     } catch (error) {
       if (error.response.data.msg === "email already exists") {
+        setLoading(false);
         setNewEmail(false);
         setTimeout(() => {
           setNewEmail(true);
         }, 2000);
       } else if (error.response.data.msg === "password not matching") {
+        setLoading(false);
         setPasswordMatch(false);
         setTimeout(() => {
           setPasswordMatch(true);

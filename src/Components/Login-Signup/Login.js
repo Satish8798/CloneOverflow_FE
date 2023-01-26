@@ -38,6 +38,7 @@ function Login() {
       navigateTo("/");
     } catch (error) {
       console.error(error);
+      setLoading(false);
       setLoginValidation(false);
     }
   }

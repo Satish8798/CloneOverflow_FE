@@ -21,7 +21,7 @@ function Profile() {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row mt-2">
         <div className="col-12">
           {loadingTime ? (
             <div className="card" aria-hidden="true">
@@ -54,7 +54,7 @@ function Profile() {
 
           <button
             type="button"
-            className="btn btn-primary mt-5"
+            className="btn btn-primary mt-2"
             onClick={() => {
               localStorage.removeItem("token");
               localStorage.removeItem("user");
@@ -67,7 +67,7 @@ function Profile() {
           </button>
         </div>
       </div>
-      <div className="row mt-5">
+      <div className="row mt-4">
         <UserQuestionsList/>
       </div>
     </div>
