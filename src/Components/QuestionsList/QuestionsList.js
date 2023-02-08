@@ -79,12 +79,13 @@ export function SingleQuestion({ d }) {
             wordWrap: "break-word",
           }}
         >
-          {d.tags.map((tag) => (
+          {d.tags.map((tag,index) => (
             <div
               className="tag"
               onClick={() => {
                 navigateTo("/question-results/" + tag);
               }}
+              key = {index}
             >
               {tag}
             </div>

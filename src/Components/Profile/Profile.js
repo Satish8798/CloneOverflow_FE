@@ -4,6 +4,7 @@ import { logout } from "../../features/loginSlice";
 import { removeUser } from "../../features/userSlice";
 import { useEffect, useState } from "react";
 import UserQuestionsList from "./UserQuestionsList";
+import EditIcon from '@mui/icons-material/Edit';
 
 function Profile() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function Profile() {
               </div>
             </div>
           ) : (
-            <div className="card">
+            <div className="card d-flex flex-row">
               <div className="card-body">
                 <h1 className="card-title">{user.name}</h1>
                 <p className="card-text">
@@ -49,9 +50,11 @@ function Profile() {
                   {user.about}
                 </p>
               </div>
+              <div style={{paddingRight: "20px"}}>
+              <EditIcon/>
+              </div>
             </div>
           )}
-
           <button
             type="button"
             className="btn btn-primary mt-2"

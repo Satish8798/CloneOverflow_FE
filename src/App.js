@@ -9,6 +9,7 @@ import Profile from "./Components/Profile/Profile";
 import Question from "./Components/Question/Question";
 import QuestionResults from "./Components/QuestionResults/QuestionResults";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
+import EditProfile from "./Components/Profile/EditProfile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path="/ask-question" element={<AskQuestion />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/questions/:questionId" element={<Question />} />
         <Route path="/question-results/:tag" element = {<QuestionResults/> }/>
       </Routes>

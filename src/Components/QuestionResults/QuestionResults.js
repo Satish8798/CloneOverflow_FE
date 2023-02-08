@@ -4,7 +4,6 @@ import { SingleQuestion } from "../QuestionsList/QuestionsList";
 import axios from "axios";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { useSelector } from "react-redux";
-import { login } from "../../features/loginSlice";
 
 function QuestionResults() {
   const loginStatus = useSelector((state) => state.login.value);

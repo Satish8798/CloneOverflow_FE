@@ -84,7 +84,7 @@ function UserQuestionsList() {
           userQuestions.map((question,index) => (
             <div
               className="question-container d-flex justify-content-between"
-              style={{ padding: "10px", minHeight: "100px" }}
+              style={{ padding: "10px", minHeight: "100px" }} key={index}
             >
               {!deleteStatus[index] ? (
                 <div>
