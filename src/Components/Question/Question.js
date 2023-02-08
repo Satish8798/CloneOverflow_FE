@@ -32,7 +32,7 @@ function Question() {
 
   async function handleUpVote() {
     try {
-      await axios.post(
+      await axios.put(
         "https://cloneoverflow.onrender.com/questions/upvote",
         {
           userName,
@@ -53,7 +53,7 @@ function Question() {
 
   async function handleDownVote() {
     try {
-      await axios.post(
+      await axios.put(
         "https://cloneoverflow.onrender.com/questions/downvote",
         {
           userName,

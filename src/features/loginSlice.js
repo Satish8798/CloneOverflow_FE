@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+/* Creating a slice for storing login status state */
 
+//initializing default value
 let initialStatus = false;
 if(localStorage.getItem("token")){
   initialStatus=true
 }
 
+//creating a slice
 const loginSlice = createSlice({
   name: "login",
   initialState: {
@@ -20,6 +23,7 @@ const loginSlice = createSlice({
   },
 });
 
+//exporting the actions and reducer
 export const { login, logout } = loginSlice.actions;
 
 export default loginSlice.reducer;
