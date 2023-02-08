@@ -82,8 +82,8 @@ function AnswersList({ question }) {
 
   return (
     <div>
-      {answers.map((d) => (
-        <div className="answer-container p-2 ms-auto">
+      {answers.map((d,index) => (
+        <div className="answer-container p-2 ms-auto" key ={index}>
           <div className="countables w-25 ms-auto text-end">
             <ArrowDropUpIcon
               style={votingIconStyle}

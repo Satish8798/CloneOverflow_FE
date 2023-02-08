@@ -157,7 +157,7 @@ function Signup() {
             </div>
           )}
           {signupStatus && (
-            <div className="alert alert-danger mt-2" role="alert">
+            <div className="alert alert-success mt-2" role="alert">
               Signedup successfully!! please login
             </div>
           )}

@@ -5,8 +5,10 @@ import { removeUser } from "../../features/userSlice";
 import { useEffect, useState } from "react";
 import UserQuestionsList from "./UserQuestionsList";
 import EditIcon from '@mui/icons-material/Edit';
+import Tooltip from "@mui/material/Tooltip";
 
 function Profile() {
+
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
   const user = useSelector((state) => state.user.value);
@@ -51,7 +53,11 @@ function Profile() {
                 </p>
               </div>
               <div style={{paddingRight: "20px"}}>
-              <EditIcon/>
+              <Tooltip title="edit profile" placement="top">
+              <EditIcon onClick={()=>{
+                navigateTo('/profile/edit')
+              }}/>
+              </Tooltip>
               </div>
             </div>
           )}

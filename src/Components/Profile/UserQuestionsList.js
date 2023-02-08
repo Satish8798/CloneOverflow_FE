@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Tooltip from "@mui/material/Tooltip";
@@ -11,7 +11,7 @@ import AlertTitle from '@mui/material/AlertTitle';
 import { red } from '@mui/material/colors';
 
 function UserQuestionsList() {
-  const dispatch = useDispatch();
+
   const navigateTo = useNavigate();
   const user = useSelector((state) => state.user.value);
   const [userQuestions, setUSerQuestions] = useState([]);
