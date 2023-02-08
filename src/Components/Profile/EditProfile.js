@@ -13,7 +13,7 @@ function EditProfile() {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {
-            const response = await axios.put('http://localhost:8000/user/update',{
+            const response = await axios.put('https://cloneoverflow.onrender.com/user/update',{
                 ...updatedData
             });
             if(response.data.msg){
