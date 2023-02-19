@@ -227,18 +227,16 @@ function Question() {
                 }}
               >
                 <div
-                  className="form-floating mb-3"
+                  className="form-floating"
                   style={{
-                    height: "250px",
+                    height: "300px",
                   }}
                 >
                   <ReactQuill
                     theme="snow"
                     value={answer}
                     onChange={setAnswer}
-                    style={{
-                      height: "200px",
-                    }}
+                    className='react-quill-custom'
                     modules={modules}
                   />
                 </div>

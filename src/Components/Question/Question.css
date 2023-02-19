@@ -12,3 +12,7 @@
 .tag:hover{
     background-color: rgba(47, 255, 0, 0.504);
 }
+
+.react-quill-custom{
+    height: 200px;
+}

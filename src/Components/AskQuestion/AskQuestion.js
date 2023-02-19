@@ -73,7 +73,7 @@ function AskQuestion() {
   };
 
   return (
-    <div className="container-fluid ms-5">
+    <div className="container-fluid ms-md-5">
       <ArrowCircleLeftIcon
         style={{
           marginLeft: "5%",
@@ -111,12 +111,11 @@ function AskQuestion() {
                 Explain more about the doubt or problem
               </label>
               <ReactQuill
+              className="react-quill-custom"
                 theme="snow"
                 value={description}
                 onChange={onDescription}
-                style={{
-                  height: "200px",
-                }}
+                
                 modules={modules}
               />
             </div>

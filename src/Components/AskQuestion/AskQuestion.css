@@ -11,3 +11,20 @@
     background-color: #fff;
 }
 
+
+.react-quill-custom{
+    height: 200px;
+}
+
+
+@media (max-width: 767px) {
+
+    .question-description-form {
+        height: 400px;
+        width: 100%;
+    }
+    .question-title-form, .question-tags-form {
+        width: 100%;
+    }
+    
+}
