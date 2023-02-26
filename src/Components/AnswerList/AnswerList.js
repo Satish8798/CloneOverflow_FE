@@ -82,6 +82,7 @@ function AnswersList({ question }) {
 
   return (
     <div>
+      {answers.length === 0 && <h6 className="mb-5 text-danger">No answers yet</h6>}
       {answers.map((d,index) => (
         <div className="answer-container p-2 ms-auto" key ={index}>
           <div className="countables w-25 ms-auto text-end">

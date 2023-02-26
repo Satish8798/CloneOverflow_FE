@@ -10,10 +10,13 @@ import Question from "./Components/Question/Question";
 import QuestionResults from "./Components/QuestionResults/QuestionResults";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
 import EditProfile from "./Components/Profile/EditProfile";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer/>
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -21,7 +21,7 @@ function QuestionsList() {
         }
       );
       setTimeout(() => {
-        dispatch(setQuestions([...response.data.response]));
+        dispatch(setQuestions([...response.data.response].reverse()));
       }, 1000);
     } catch (error) {
       console.log(error);
@@ -39,7 +39,9 @@ function QuestionsList() {
         <div className="col-md-2 col-xs-0"></div>
         <div className="col-md-10 col-12">
           {!questions.length ? (
-            <CircularProgress />
+            <div className="d-flex justify-content-center align-items-center" style={{height:"50vh"}}>
+              <CircularProgress />
+            </div>
           ) : (
             questions.map((d, i) => <SingleQuestion key={i} d={d} />)
           )}

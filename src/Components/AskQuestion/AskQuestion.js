@@ -7,6 +7,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { TagsInput } from "react-tag-input-component";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import { toast } from "react-toastify";
 
 function AskQuestion() {
   const [title, setTitle] = useState("");
@@ -58,12 +59,12 @@ function AskQuestion() {
         setTitle("");
         setDescription("");
         setTags([]);
-        alert("question created successfully");
+        toast("question created successfully");
         navigateTo("/");
       }
     } catch (error) {
       console.log(error);
-      alert("Enter data correctly");
+      toast("Enter data correctly");
     }
   }
 

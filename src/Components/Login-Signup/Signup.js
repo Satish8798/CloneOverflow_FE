@@ -141,7 +141,7 @@ function Signup() {
                   <span class="visually-hidden">Loading...</span>
                 </div>
               ) : (
-                <p>Sign up</p>
+                "Sign Up"
               )}
             </button>
           </form>

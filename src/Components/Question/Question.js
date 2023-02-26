@@ -11,6 +11,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { CircularProgress } from "@mui/material";
+import { toast } from "react-toastify";
 
 function Question() {
   let { questionId } = useParams();
@@ -94,12 +96,12 @@ function Question() {
         );
         if (response.data.msg) {
           setAnswer("");
-          alert("answer added succesfully");
+          toast("answer added succesfully");
           window.location.reload();
         }
       }
     } catch (error) {
-      alert("enter answer correctly");
+      toast("enter answer correctly");
     }
   }
 
@@ -159,7 +161,9 @@ function Question() {
           navigateTo(-1);
         }}
       />
-      {!questionStatus && <h1>Loading....</h1>}
+      {!questionStatus && <div className="d-flex justify-content-center align-items-center" style={{height:"50vh"}}>
+              <CircularProgress />
+            </div>}
       {questionStatus && (
         <div className="container mt-5">
           <div className="row question-details">
@@ -195,12 +199,13 @@ function Question() {
                   wordWrap: "break-word",
                 }}
               >
-                {question.tags.map((tag) => (
+                {question.tags.map((tag,i) => (
                   <div
                     className="tag"
                     onClick={() => {
                       navigateTo("/question-results/" + tag);
                     }}
+                    key={i}
                   >
                     {tag}
                   </div>
@@ -227,16 +232,13 @@ function Question() {
                 }}
               >
                 <div
-                  className="form-floating"
-                  style={{
-                    height: "300px",
-                  }}
+                  className="form-floating ans"
                 >
                   <ReactQuill
+                  className="react-quill-custom"
                     theme="snow"
                     value={answer}
                     onChange={setAnswer}
-                    className='react-quill-custom'
                     modules={modules}
                   />
                 </div>

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import UserQuestionsList from "./UserQuestionsList";
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from "@mui/material/Tooltip";
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 
 function Profile() {
 
@@ -26,6 +27,15 @@ function Profile() {
     <div className="container">
       <div className="row mt-2">
         <div className="col-12">
+        <ArrowCircleLeftIcon
+        className="mb-2"
+        style={{
+          fontSize: "40px",
+        }}
+        onClick={() => {
+          navigateTo(-1);
+        }}
+      />
           {loadingTime ? (
             <div className="card" aria-hidden="true">
               <div className="card-body">

@@ -2,11 +2,11 @@
 .question-container{
     min-height: 150px;
     word-wrap: break-word;
-    background-color: rgba(202, 165, 43, 0.089);
-    border: 1px solid grey;
+    background-color: whitesmoke;
+    border: 1px solid black;
     display: flex;
     margin:20px;
-    box-shadow: 0 5px 5px rgba(255, 0, 0, 0.313);
+    box-shadow: 0 5px 5px  rgba(255, 0, 0, 0.313);
 }
 
 .question-meta{

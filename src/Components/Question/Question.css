@@ -16,3 +16,13 @@
 .react-quill-custom{
     height: 200px;
 }
+
+.ans{
+    height: 260px;
+}
+
+@media (max-width: 767px) {
+    .ans{
+        height: 330px;
+    }
+}

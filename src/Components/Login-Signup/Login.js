@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/loginSlice";
 import { setUser } from "../../features/userSlice";
+import { Tooltip } from "@mui/material";
 
 function Login() {
   const navigateTo = useNavigate();
@@ -31,7 +32,6 @@ function Login() {
       console.log(response.data);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.userDetails));
-      console.log(response.data.user);
       dispatch(setUser({ ...response.data.user }));
       dispatch(login());
       setLoading(false);
@@ -70,7 +70,7 @@ function Login() {
                 className="form-control rounded-0 h-25"
                 placeholder="Password"
                 required
-                value={inputData.passowrd}
+                value={inputData.password}
                 onChange={(e) => {
                   setInputData({ ...inputData, password: e.target.value });
                 }}
@@ -79,17 +79,25 @@ function Login() {
             </div>
             <button type="submit" className="btn btn-primary rounded-0 w-75">
               {loading ? (
-                <div class="spinner-border text-light" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border text-light" role="status">
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
-                <p>Login</p>
+                "Login"
               )}
+            </button>
+            <button type="button" className="btn btn-success mt-2 rounded-0 w-75" onClick={(e) => {
+                setInputData({ password: "guestuser@123" , email: "guestuser@gmail.com" });
+                console.log(inputData);
+              }}>
+              Login as Guest user
             </button>
           </form>
           <Link to="/signup">New User? signup</Link>
           <br />
-          <Link to="/reset-password">forgot password?</Link>
+          <Tooltip title="works only for valid gmail accounts">
+            <Link to="/reset-password">forgot password?</Link>
+          </Tooltip>
           {!loginValidation && (
             <div className="alert alert-danger mt-2" role="alert">
               Invalid email or password
