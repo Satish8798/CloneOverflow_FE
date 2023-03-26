@@ -85,7 +85,7 @@ function AnswersList({ question }) {
       {answers.length === 0 && <h6 className="mb-5 text-danger">No answers yet</h6>}
       {answers.map((d,index) => (
         <div className="answer-container p-2 ms-auto" key ={index}>
-          <div className="countables w-25 ms-auto text-end">
+          <div className="countables w-25 text-end">
             <ArrowDropUpIcon
               style={votingIconStyle}
               onClick={() => {
@@ -104,7 +104,7 @@ function AnswersList({ question }) {
               handleDownVote(d);
              }} />
           </div>
-          <div className="answer-meta w-75 text-left ps-5">
+          <div className="answer-meta w-75 text-left ps-1">
             <p dangerouslySetInnerHTML={createMarkup(d)}/>
             <p
               className="author-name"

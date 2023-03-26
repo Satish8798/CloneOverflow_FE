@@ -167,7 +167,7 @@ function Question() {
       {questionStatus && (
         <div className="container mt-5">
           <div className="row question-details">
-            <div className="col-1 options d-flex flex-column align-items-center justify-content-center">
+            <div className="col-2 options d-flex flex-column align-items-center justify-content-center">
               <ArrowDropUpIcon
                 style={votingIconStyle}
                 onClick={() => {
@@ -188,9 +188,9 @@ function Question() {
                 }}
               />
             </div>
-            <div className="col-11">
-              <h2>{question.title}</h2>
-              <h6>description</h6>
+            <div className="col-10">
+              <h2 class='question-title'>{question.title}</h2>
+              <strong>description</strong>
               <p dangerouslySetInnerHTML={createMarkup()} />
               <div
                 style={{

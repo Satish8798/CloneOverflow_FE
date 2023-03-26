@@ -36,7 +36,7 @@ function QuestionsList() {
     <div className="container">
       <h4>{questions.length} &nbsp; questions</h4>
       <div className="row">
-        <div className="col-md-2 col-xs-0"></div>
+        {/* <div className="col-md-2 col-xs-0"></div> */}
         <div className="col-md-10 col-12">
           {!questions.length ? (
             <div className="d-flex justify-content-center align-items-center" style={{height:"50vh"}}>
@@ -63,7 +63,7 @@ export function SingleQuestion({ d }) {
       </div>
       <div className="question-meta text-left">
         <p
-          style={{ fontWeight: 600,cursor: "pointer", }}
+          style={{ fontWeight: 500,cursor: "pointer", }}
           onClick={() => {
             if (token) {
               navigateTo("/questions/" + d["_id"]);

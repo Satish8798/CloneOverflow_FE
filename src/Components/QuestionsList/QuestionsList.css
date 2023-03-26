@@ -2,11 +2,12 @@
 .question-container{
     min-height: 150px;
     word-wrap: break-word;
-    background-color: whitesmoke;
-    border: 1px solid black;
+    background-color: #ffffffa2;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     display: flex;
     margin-bottom:20px;
-    box-shadow: 0 5px 5px  rgba(255, 0, 0, 0.313);
+    /* box-shadow: 0 5px 5px  rgba(255, 0, 0, 0.313); */
 }
 
 .question-meta{
