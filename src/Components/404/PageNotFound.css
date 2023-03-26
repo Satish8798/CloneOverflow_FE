@@ -1,0 +1,22 @@
+.main-text{
+    animation: animate 8s linear infinite;
+    transition: border 3s;
+}
+
+@keyframes animate {
+    0%{
+        border-top: 2px solid red;
+    }
+
+    30%{
+        border-right: 2px solid yellow;
+    }
+
+    60%{
+        border-bottom: 2px solid  green;
+    }
+
+    100%{
+        border-left: 2px solid  skyblue;
+    }
+}

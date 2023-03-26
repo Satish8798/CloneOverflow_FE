@@ -1,6 +1,6 @@
 import "./App.css";
 import Navigation from "./Components/Header/Navigation";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login-Signup/Login";
 import Signup from "./Components/Login-Signup/Signup";
@@ -12,6 +12,7 @@ import ResetPassword from "./Components/ResetPassword/ResetPassword";
 import EditProfile from "./Components/Profile/EditProfile";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageNotFound from "./Components/404/PageNotFound";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/questions/:questionId" element={<Question />} />
         <Route path="/question-results/:tag" element = {<QuestionResults/> }/>
+        <Route path="/404" element={<PageNotFound />} />      
+        <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
     </div>
   );
