@@ -5,7 +5,7 @@
     background-color: whitesmoke;
     border: 1px solid black;
     display: flex;
-    margin:20px;
+    margin-bottom:20px;
     box-shadow: 0 5px 5px  rgba(255, 0, 0, 0.313);
 }
 
@@ -62,4 +62,18 @@
     .question-meta{
         width:100%;
     }
+}
+
+@media screen and (max-width: 768px ){
+    .question-container{
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 300px ){
+    .question-container{
+        font-size: 10px;
+    }
+
 }
